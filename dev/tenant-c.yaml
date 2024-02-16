@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: tenant-c
-  namespace: tenant-b-dev
+  namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
