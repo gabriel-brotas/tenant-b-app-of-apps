@@ -13,7 +13,7 @@ spec:
     path: dev
   destination:
     name: in-cluster
-    namespace: tenant-b-dev
+    namespace: tenant-c-dev
   syncPolicy:
     automated:
       prune: true
