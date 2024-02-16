@@ -1,12 +1,12 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: guestbook-b-healthy
+  name: guestbook-c
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
   labels:
-    name: guestbook-b-healthy
+    name: guestbook-b
 spec:
   project: tenant-b-dev
   source:
@@ -15,7 +15,7 @@ spec:
     path: guestbook
   destination:
     name: in-cluster
-    namespace: tenant-b-dev
+    namespace: tenant-c-dev
   syncPolicy:
     automated:
       prune: true
