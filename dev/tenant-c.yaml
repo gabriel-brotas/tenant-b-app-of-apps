@@ -1,17 +1,16 @@
----
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: guestbook-b-healthy
+  name: tenant-c-app-of-apps
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
   project: tenant-b-dev
   source:
-    repoURL: https://github.com/argoproj/argocd-example-apps.git
+    repoURL: https://github.com/gabriel-brotas/tenant-c-app-of-apps
     targetRevision: HEAD
-    path: guestbook
+    path: dev
   destination:
     name: in-cluster
     namespace: tenant-b-dev
