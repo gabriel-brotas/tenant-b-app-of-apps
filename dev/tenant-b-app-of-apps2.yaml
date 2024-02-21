@@ -1,17 +1,17 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: tenant-c
+  name: tenant-b-app-of-apps-2
   namespace: tenant-b-dev
 spec:
   project: tenant-b-dev
   source:
-    repoURL: https://github.com/gabriel-brotas/tenant-c-app-of-apps
+    repoURL: https://github.com/gabriel-brotas/tenant-b-app-of-apps-2
     targetRevision: HEAD
     path: dev
   destination:
     name: in-cluster
-    namespace: tenant-c-dev
+    namespace: guestbook-b-app-of-apps-2
   syncPolicy:
     automated:
       prune: true
