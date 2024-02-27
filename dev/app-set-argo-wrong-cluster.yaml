@@ -2,7 +2,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: guestbook-application-set
+  name: app-set-wrong-cluster
   namespace: tenant-b-dev
 spec:
   generators:
@@ -14,7 +14,8 @@ spec:
               namespaceSuffix: "1"
   template:
     metadata:
-      name: "guestbook-{{values.namespaceSuffix}}"
+      name: "app-set-wrong-cluster"
+      namespace: tenant-b-dev
     spec:
       project: tenant-a-dev
       source:
