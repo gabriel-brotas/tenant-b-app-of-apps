@@ -9,7 +9,6 @@ spec:
     - list:
         elements:
           - cluster: tenant-b-dev
-            url: https://kubernetes.default.svc
             values:
               namespaceSuffix: "1"
   template:
