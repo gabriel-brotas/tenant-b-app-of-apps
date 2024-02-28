@@ -1,0 +1,32 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: app-set-healthy
+  namespace: tenant-b-dev
+spec:
+  generators:
+    - list:
+        elements:
+          - cluster: tenant-b-dev
+            values:
+              namespaceSuffix: "1"
+  template:
+    metadata:
+      name: app-set-healthy
+    spec:
+      project: tenant-a-dev
+      source:
+        repoURL: https://github.com/argoproj/argocd-example-apps.git
+        targetRevision: HEAD
+        path: guestbook
+      destination:
+        name: "{{cluster}}"
+        namespace: "app-set-healthy-{{values.namespaceSuffix}}"
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+          allowEmpty: false
+        syncOptions:
+          - CreateNamespace=true
