@@ -2,7 +2,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: app-set-wrong-project
+  name: app-set-change-ns
   namespace: tenant-b-dev
 spec:
   generators:
@@ -13,7 +13,7 @@ spec:
               namespaceSuffix: "1"
   template:
     metadata:
-      name: app-set-wrong-project
+      name: app-set-change-ns
       namespace: tenant-a-dev
     spec:
       project: tenant-a-dev
